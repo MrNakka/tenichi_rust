@@ -1,0 +1,115 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天下統一RUST 2026</title>
+  <link rel="stylesheet" href="/css/bulma.min.css">
+  <link rel="stylesheet" href="/css/modaal.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+  <script src="/js/jquery-3.7.1.min.js"></script>
+  <script src="/js/modaal.min.js"></script>
+  <script src="/js/script.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="ocean">
+      <div class="wave"></div><!-- /.wave -->
+      <div class="wave"></div><!-- /.wave -->
+    </div><!-- /.ocean -->
+
+    
+    <div class="member-page-wrap">
+      <h1 class="mv"><img src="/images/mv.png" alt="天下統一RUST"></h1>
+      {% include 1_1_hokkaido.html %}
+      {% include 1_2_hokkaido.html %}
+      {% include 2_aomori.html %}
+      {% include 3_iwate.html %}
+      {% include 4_miyagi.html %}
+      {% include 5_akita.html %}
+      {% include 6_yamagata.html %}
+      {% include 7_fukushima.html %}
+      {% include 8_ibaraki.html %}
+      {% include 9_tochigi.html %}
+      {% include 10_gunma.html %}
+      {% include 11_saitama.html %}
+      {% include 12_chiba.html %}
+      {% include 13_tokyo.html %}
+      {% include 14_kanagawa.html %}
+      {% include 15_niigata.html %}
+      {% include 16_toyama.html %}
+      {% include 17_ishikawa.html %}
+      {% include 18_fukui.html %}
+      {% include 19_yamanashi.html %}
+      {% include 20_nagano.html %}
+      {% include 21_gifu.html %}
+      {% include 22_shizuoka.html %}
+      {% include 23_aichi.html %}
+      {% include 24_mie.html %}
+      {% include 25_shiga.html %}
+      {% include 26_kyoto.html %}
+      {% include 27_osaka.html %}
+      {% include 28_hyogo.html %}
+      {% include 29_nara.html %}
+      {% include 30_wakayama.html %}
+      {% include 31_tottori.html %}
+      {% include 32_shimane.html %}
+      {% include 33_okayama.html %}
+      {% include 34_hiroshima.html %}
+      {% include 35_yamaguchi.html %}
+      {% include 36_tokushima.html %}
+      {% include 37_kagawa.html %}
+      {% include 38_ehime.html %}
+      {% include 39_kouchi.html %}
+      {% include 40_fukuoka.html %}
+      {% include 41_saga.html %}
+      {% include 42_nagasaki.html %}
+      {% include 43_kumamoto.html %}
+      {% include 44_oita.html %}
+      {% include 45_miyazaki.html %}
+      {% include 46_kagoshima.html %}
+      {% include 47_okinawa.html %}
+    </div>
+
+    <div class="btn-wrap">
+      <a href="/member.html" class="btn ftr">勢力図を見る</a>
+    </div><!-- /.btn-wrap -->
+  </div><!-- /.wrap -->
+
+
+
+</body>
+<script type="text/javascript">
+  //モーダル表示
+  $(".modal01").modaal({
+    overlay_close: true,
+    before_open: function () {
+      $('html').css('overflow-y', 'hidden');
+    },
+    after_close: function () {
+      $('html').css('overflow-y', 'scroll');
+    }
+  });
+  $('.modaal').modaal({
+    before_open: function () {
+      $('.modaal-wrapper')
+        .addClass('modaal-opening')
+        .removeClass('is-closing');
+    },
+    after_open: function () {
+      $('.modaal-wrapper').removeClass('modaal-opening');
+    },
+    before_close: function () {
+      $('.modaal-wrapper').addClass('is-closing');
+    },
+    after_close: function () {
+      $('.modaal-wrapper').removeClass('is-closing');
+    }
+  });
+</script>
+</html>
