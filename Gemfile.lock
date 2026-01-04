@@ -139,3 +139,6 @@ CHECKSUMS
 
 BUNDLED WITH
   4.0.3
+
+bundle lock --add-platform x86_64-linux
+bundle lock --add-platform ruby
