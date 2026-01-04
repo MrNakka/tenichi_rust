@@ -60,7 +60,7 @@ body:not(.obs) .wave:nth-of-type(2) {
 }
 
 .map {
-  width: 700px;
+  width: 750px;
   margin: 0 auto;
   padding-top: 50px;
   position: relative;
