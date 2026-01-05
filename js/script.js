@@ -1,6 +1,7 @@
 $(function () {
   // load data
   // member data load
+  /*
   var memberCsv = '/db/whitelist.csv';
   function getMem(url) {
     //CSVファイルを文字列で取得。
@@ -15,12 +16,14 @@ $(function () {
     }
     return res;
   }
+  */
   // console.table(getMem())
   // console.log(getMem().length)
   // string
   // console.log(getMem()[1][0])
 
   // prefectures data load
+  /*
   var prefCsv = '/db/prefectures.csv';
   function getPref(url) {
     //CSVファイルを文字列で取得。
@@ -40,6 +43,7 @@ $(function () {
     console.log('ClanTag '+ getPref()[i][2])
     $('[data-code="' + i + '"]').addClass(getPref()[i][2]);
   }
+  */
   // console.table(getPref())
   // console.log(getPref().length)
   // string

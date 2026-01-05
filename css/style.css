@@ -1,20 +1,25 @@
-html, body { height: 100%; }
+/* html, body { height: 100%; } */
+html {
+  scroll-behavior: smooth;
+}
 body:not(.obs) {
   background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-y: auto;
 }
 
 body:not(.obs) .ocean { 
   height: 5%;
   width:100%;
-  position:absolute;
+  position:fixed;
   bottom:0;
   left:0;
   background: #015871;
+  z-index: 0;
 }
 
 body:not(.obs) .wave {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+  background: url(/images/wave.svg) repeat-x; 
   position: absolute;
   top: -198px;
   width: 6400px;
@@ -48,10 +53,14 @@ body:not(.obs) .wave:nth-of-type(2) {
 }
 
 .wrap {
-  background: url(/images/bg_l.png) no-repeat left top 10%, url(/images/bg_r.png) no-repeat right top;
+  background: url(/images/bg_l.png) no-repeat left top 10vh, url(/images/bg_r.png) no-repeat right top;
   background-size: 350px auto;
-  height: 100vh;
+  /* height: 100vh;
+  position: relative; */
   position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  padding-bottom: 50px;
 }
 
 .title {
@@ -67,11 +76,12 @@ body:not(.obs) .wave:nth-of-type(2) {
 }
 
 .btn-wrap {
-  position: absolute;
+  position: fixed;
   height: 100px;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 100;
 }
 
 .btn {
@@ -622,15 +632,6 @@ h2.section-title {
 .member-page-wrap {
   width: 700px;
   margin: 0 auto;
-  position: relative;
-  z-index: 999;
-  overflow-y: auto;
-  height: 100vh;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-}
-.content::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
 }
 
 .member-page-wrap > .mv {
@@ -645,17 +646,7 @@ h2.section-title {
 .rule-page-wrap {
   max-width: 100%;
   margin: 0 auto;
-  position: relative;
-  padding-bottom: 50px;
-  z-index: 999;
   font-family: "Yuji Syuku", serif;
-  overflow-y: scroll;
-  height: 100vh;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-}
-.rule-page-wrap::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
 }
 .rule-page-wrap > .mv {
   position: relative;
