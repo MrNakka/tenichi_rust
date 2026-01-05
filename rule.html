@@ -1,0 +1,462 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天下統一RUST 2026</title>
+  <link rel="stylesheet" href="/css/bulma.min.css">
+  <link rel="stylesheet" href="/css/modaal.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&family=Noto+Sans+JP:wght@400;700&family=Hina+Mincho&family=Yuji+Syuku&display=swap" rel="stylesheet">
+  <script src="/js/jquery-3.7.1.min.js"></script>
+  <script src="/js/modaal.min.js"></script>
+  <script src="/js/script.js"></script>
+</head>
+<body>
+  <div class="wrap">
+
+    
+    <div class="rule-page-wrap">
+      <h1 class="mv"><img src="/images/mv.png" alt="天下統一RUST"></h1>
+
+      <h2 class="title">天下統一RUST 公式ルール</h2><!-- /.title -->
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>重要</h3>
+          <ul>
+            <li>本企画は<strong>ガチPvPイベントではありません</strong></li>
+            <li>「物語・演出・掛け合い」を楽しむ<strong>ストリーマー向けエンターテインメント企画</strong>です</li>
+            <li>視聴者が「何が起きているか分かる」進行を心がけてください</li>
+          </ul>
+          <p class="tac">
+            <strong>配信・発言・行動すべてにおいて他参加者への配慮を最優先してください。</strong>
+          </p>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>開催日程</h3>
+          <div class="tac">
+            <p class="dib">
+              2026年1月9日（金）～ 1月11日（日）<br>
+              各日 17:00 ～ 27:00（3:00）<br>
+              （サーバーオープン：各日 16:50～）
+            </p>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>日程別ルール</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <p class="fz1_25 fwb tac">1日目（1月9日）｜拠点作成期間（一部PvP）</p>
+              <ul>
+                <li><strong>日本列島エリアセーフゾーン内は原則PvE</strong><br>この期間にキル等が発生した場合、2日目以降に解消推奨</li>
+                <li>
+                  <strong>PvP可能エリア</strong>
+                  <ul class="dot">
+                    <li class="mb00">海上</li>
+                    <li class="mb00">地下</li>
+                    <li>各モニュメント</li>
+                  </ul>
+                  ※ゲームモード自体はPvPです（完全無敵ではありません）
+                </li>
+              </ul>
+              <hr>
+              <p class="fz1_25 fwb tac">2日目・3日目（1月10日・1月11日）</p>
+              <ul>
+                <li><strong>PvP・レイド全面解禁</strong><br>レイド可能時間：19:00 ～ 27:00<br><a href="#raid">レイド詳細についてはこちら</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>ゲーム設定</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <ul>
+                <li><strong>ゲームモード</strong><br>通常</li>
+                <li><strong>地下鉄</strong><br>あり</li>
+                <li><strong>物資量</strong><br>5倍</li>
+                <li><strong>スタック量</strong><br>10倍</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>拠点作成ルール</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <ul>
+                <li>拠点は<strong>自身の都道府県ランドマーク内</strong>だけで建築<br>（レイド拠点を除く）</li>
+                <li>
+                  <strong>建築制限</strong>
+                  <ul class="dot">
+                    <li class="mb00">甲板・装甲ドア禁止</li>
+                    <li class="mb00">上金を使用した壁・建築は禁止<br><strong>⭕ 土台は可</strong></li>
+                  </ul><!-- /.dot -->
+                </li>
+                <li><strong>建築形状・サイズ</strong><br>制限なし</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki" id="raid">
+        <div class="ofuregaki-paper">
+          <h3>レイド範囲制限</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <p class="fz1_25 fwb tac">2日目（1月10日）</p>
+              <p class="fwb tac fz1_1">原則 近隣都道府県のみ制圧可能</p>
+              <p>例）<br>
+                ❌ 関西 → 北海道<br>
+                ⭕ 東京 → 群馬
+              </p><br>
+              <p class="fz1_1 fwb">例外的に遠征OKな条件</p>
+              <p>以下いずれかに該当する場合：</p>
+              <ul class="dot">
+                <li class="mb00">近隣に制圧可能な拠点が存在しない</li>
+                <li class="mb00">近隣チームが同盟・傘下関係で交戦不可</li>
+                <li class="mb00">マップ構造・進行状況的に近隣制圧が困難</li>
+              </ul><!-- /.dot -->
+              <hr>
+              <p class="fz1_25 fwb tac">3日目（1月11日）</p>
+              <p class="fwb tac fz1_1">レイド範囲制限撤廃（全国可）</p>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>レイド基本ルール</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <ul>
+                <li>
+                  オフラインレイド禁止<br>
+                  <ul class="dot">
+                    <li class="mb00">VC不在 ＝ オフライン扱い</li>
+                  </ul>
+                </li>
+                <li>プレイ中は<strong>必ず都道府県VCに参加</strong></li>
+                <li>他サーバーVCとの同時接続禁止</li>
+                <li>勝敗判定は<strong>メインTC破壊</strong>のみ</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>宣戦布告・外交ターン</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <p class="tac">
+                <span class="fwb">ストリーマーたるもの、必ず宣戦布告を行ってください。</span><br>
+                宣戦布告なしに、いきなりロケット・爆発物を撃つ行為は禁止です。
+              </p><br>
+              <p>本イベントでは、レイド前に必ず<strong>「外交ターン」</strong>を設けてください。</p>
+              <div class="tac">
+                <ul class="dib tal">
+                  <li>交渉</li>
+                  <li>同盟</li>
+                  <li>取引</li>
+                  <li>傀儡</li>
+                  <li>傘下の提案</li>
+                </ul>
+              </div>
+              <p>など、一度<strong>やり取り（演出・プロレス）</strong>を行った上で<br>「レイドするかどうか」を決定します。</p>
+              <p>この外交ターンは勝敗ではなく<strong>配信としての面白さ</strong>を重視したものです。</p>
+              <hr>
+              <p class="fz1_25 fwb tac">3日目（1月11日）</p>
+              <div class="tac">
+                <ul class="dib tal">
+                  <li>宣戦布告 → 法螺貝（Voicemod）を鳴らす</li>
+                  <li>その後、レイド開始</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+      
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>Voicemod 協賛</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <ul>
+                <li>レイドは<strong>宣戦布告制</strong></li>
+                <li>
+                  レイド開始時
+                  <ul class="dot">
+                    <li class="mb00">Voicemod カスタムサウンド<br>「法螺貝（ほらがい）」を鳴らしてから開始</li>
+                  </ul>
+                </li>
+                <li>各チーム1名以上の「音担当」配置必須</li>
+                <li>全員使用する必要なし<br>※音担当が鳴らせばOK</li>
+              </ul>
+              <hr>
+              <ul class="note-list">
+                <li>本ルールは 演出・宣戦布告・配信映え目的</li>
+                <li>Voicemodは本イベント協賛です</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>TC（ツールキャビネット）ルール</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <p class="fz1_25 fwb tac">メインTC</p>
+              <ul>
+                <li>専用のメインTCを1つ設置</li>
+                <li>勝敗判定はこのTC破壊のみ</li>
+                <li>破壊時に花火演出あり</li>
+                <li>2日目開始までに必ず設置</li>
+                <li>専用のメインTCは運営より配布</li>
+              </ul><br>
+              <p class="fz1_25 fwb tac">設置・構造ルール</p>
+              <p>
+                TCは必ず<strong>アクセス可能な位置</strong>に設置<br>
+                ドア・ガレージドアで到達可能にすること
+              </p>
+              <ul>
+                <li>❌ 壁で完全に囲う構造は禁止</li>
+                <li>❌ 自販機で埋める行為は禁止</li>
+                <li>❌ 通称バンカー拠点は禁止</li>
+              </ul><br>
+              <p class="fz1_25 fwb tac">TC数の数の制限はありません</p>
+              <ul>
+                <li>⭕ マルチTC</li>
+                <li>⭕ かまど拠点</li>
+                <li>⭕ レイド用TC</li>
+              </ul><br>
+              <p class="fz1_25 fwb tac">メインTCを移動する場合</p>
+              <p>
+                既存TCを破壊（他の県へ移動する場合）<br>
+                運営立ち会いのもと、新TCを受け取り再設置
+              </p>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div>
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>制圧・同盟ルール</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <p>
+                同盟は<strong>自由</strong><br>
+                口約束のみ（TC未破壊）でも可
+              </p><br>
+              <p>メインTCを破壊されたチームは<br>→ 破壊したチームの傘下に加入</p>
+              <br>
+              <p class="fz1_25 fwb tac">メイン拠点移動</p>
+              <p>
+                例）<br>
+                東京が埼玉を制圧した場合<br>
+                埼玉拠点の方が優秀であれば<br>
+                メイン拠点を移動可能
+              </p>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div>
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>亡命ルール</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <p>全期間中<strong>1回のみ</strong>3人中1名のみの亡命可能</p>
+              <p>
+                複数チーム構成の場合<br>
+                → 元チームから各1名ずつ可能
+              </p>
+              <br>
+              <p class="fz1_25 fwb tac">亡命時の条件</p>
+              <ul>
+                <li>⭕ 裸一貫で移動</li>
+                <li>❌ 物資持ち出し禁止</li>
+                <li>❌ 存在しない地域（海外など）への亡命禁止</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div>
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>パーティー（Clan）ルール</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <p class="tac">
+                使用MOD：Clans<br>
+                コマンド：/clan<br>
+                Clan名：都道府県名
+              </p><br>
+              <p class="fz1_25 fwb tac">メインTC破壊後</p>
+              <p class="tac">元Clanを脱退制圧したClanに参加</p><br>
+              <p class="fz1_25 fwb tac">その他要素</p>
+              <ul>
+                <li>チームのコードロック：自動共有</li>
+                <li>タレット関係登録：チームに入れば自動登録</li>
+                <li>UIで味方の体力が見える</li>
+                <li>双眼鏡を持つとピンを指すことができる</li>
+                <li>リーダーがオフライン時、自動でリーダー権限を移譲する</li>
+                <li>ワークベンチがTC範囲内でどこでも使える</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div>
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>VCルール</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <ul>
+                <li>都道府県別VC (確認用)</li>
+                <li>ゲーム内VCを使用</li>
+                <li>VC不在でのレイド：❌ 禁止（オフライン扱い）</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>禁止行為</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <ul>
+                <li>ゴースティング</li>
+                <li>粘着・嫌がらせ・負荷行為・進行の妨害</li>
+                <li>暴言・誹謗中傷・不快な言動</li>
+                <li>バグ・グリッチ・チート行為</li>
+                <li>死体撃ち等、配信上不適切な行為</li>
+                <li>配信上で他参加者を非難する行為</li>
+                <li>カウンターレイド（漁夫・横槍）</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>視聴者の皆様へ</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <ul>
+                <li>
+                  <strong>鳩行為は禁止</strong><br>
+                  他配信の位置・人数・装備・作戦など<br>
+                  配信者の知らない情報の提供は禁止
+                </li>
+                <li>
+                  <strong>天下統一RUSTへの参加を強要するコメント禁止</strong><br>
+                  「なんで出ないの？」<br>
+                  「今日は参加しないの？」
+                </li>
+                <li>
+                  <strong>視聴している配信者や他の配信者への指摘</strong><br>
+                  ルールは運営と配信者に任せましょう<br>
+                  過度な指摘はやめましょう
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>運営サポート</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <ul>
+                <li>ジンジャーブレッド（お菓子の着ぐるみ）のプレイヤーは運営</li>
+                <li>不明点・トラブルは お気軽にお声がけください</li>
+                <li>問題発生時は 運営判断で随時対応</li>
+                <li>運営から無差別にMLRSを撃つことがあります（レイド中に撃つことはありません）</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+
+      <div class="ofuregaki">
+        <div class="ofuregaki-paper">
+          <h3>その他</h3>
+          <div class="tac">
+            <div class="dib tal">
+              <ul>
+                <li><strong>RUST仕様に関する制限</strong><br>原則なし</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.ofuregaki-paper -->
+      </div><!-- /.ofuregaki -->
+      
+    </div>
+    <div class="btn-wrap">
+      <a href="/index.html" class="btn ftr">勢力図を見る</a>
+    </div><!-- /.btn-wrap -->
+  </div><!-- /.wrap -->
+
+
+
+</body>
+<script type="text/javascript">
+  //モーダル表示
+  $(".modal01").modaal({
+    overlay_close: true,
+    before_open: function () {
+      $('html').css('overflow-y', 'hidden');
+    },
+    after_close: function () {
+      $('html').css('overflow-y', 'scroll');
+    }
+  });
+  $('.modaal').modaal({
+    before_open: function () {
+      $('.modaal-wrapper')
+        .addClass('modaal-opening')
+        .removeClass('is-closing');
+    },
+    after_open: function () {
+      $('.modaal-wrapper').removeClass('modaal-opening');
+    },
+    before_close: function () {
+      $('.modaal-wrapper').addClass('is-closing');
+    },
+    after_close: function () {
+      $('.modaal-wrapper').removeClass('is-closing');
+    }
+  });
+</script>
+</html>

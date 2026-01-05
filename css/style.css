@@ -640,3 +640,180 @@ h2.section-title {
 .member-page-wrap > .faction {
   margin-top: 50px;
 }
+
+/* rule page */
+.rule-page-wrap {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 50px;
+  z-index: 999;
+  font-family: "Yuji Syuku", serif;
+  overflow-y: scroll;
+  height: 100vh;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.rule-page-wrap::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+.rule-page-wrap > .mv {
+  position: relative;
+}
+
+.title {
+  font-family: 'Hina Mincho', serif;
+}
+
+.ofuregaki {
+  max-width: 700px;
+  padding: 18px 10px;
+  margin: 0 auto;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #caa46a,
+      #caa46a 6px,
+      #c19a5d 12px
+    );
+  border: 2px solid #1f140c;
+  border-radius: 4px 8px 5px 7px;
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.45),
+    inset 0 0 28px rgba(0,0,0,.18);
+  color: #111;
+  filter: saturate(.95) contrast(1.05);
+  font-weight: 500;
+}
+.ofuregaki:hover {
+  animation: sway .4s ease-in-out;
+}
+@keyframes sway {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(0.6deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.ofuregaki+.ofuregaki {
+  margin-top: 30px;
+}
+
+.ofuregaki h3 {
+  text-align: center;
+  margin: 0 0 14px;
+  letter-spacing: .15em;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.ofuregaki h3::before,
+.ofuregaki h3::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: #1f140ca1;
+  flex-grow: 1;
+}
+.ofuregaki h3::before {
+  left: 0;
+  margin-right: 1rem;
+}
+.ofuregaki h3::after {
+  right: 0;
+  margin-left: 1rem;
+}
+
+.ofuregaki hr {
+  background: rgba(0,0,0,.25);
+  height: 2px;
+}
+
+.ofuregaki ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ofuregaki li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+  position: relative;
+  padding-left: 1.8em;
+}
+
+.ofuregaki .dot li {
+  padding-left: 1em;
+}
+
+.ofuregaki li::before {
+  content: "一、";
+  position: absolute;
+  left: 0;
+}
+.ofuregaki .dot li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  font-size: 0.5em;
+  top: 1em;
+}
+
+.ofuregaki strong {
+  font-weight: 900;
+}
+
+.ofuregaki-paper {
+  background: rgba(255,255,255,.25);
+  padding: 14px 16px;
+  box-shadow: inset 0 0 12px rgba(0,0,0,.08);
+}
+
+.note-list {
+  margin-top: 14px;
+  padding-top: 8px;
+  list-style: none;
+}
+
+.note-list li {
+  font-size: 0.8em;
+  line-height: 1.6;
+  color: #1a1a1a;
+  text-shadow: 0.25px 0.25px 0 rgba(0,0,0,.25);
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+  margin-bottom: 4px;
+}
+
+.note-list li::before {
+  content: "※";
+  margin-right: 0.3em;
+}
+
+.tac {
+  text-align: center;
+}
+.tal {
+  text-align: left;
+}
+.dib {
+  display: inline-block;
+}
+
+.fz1_1 {
+  font-size: 1.1em;
+}
+.fz1_25 {
+  font-size: 1.25em;
+}
+.fz1_5 {
+  font-size: 1.5em;
+}
+
+.fwb {
+  font-weight: 900;
+}
+
+.mb00 {
+  margin-bottom: 0 !important;
+}
