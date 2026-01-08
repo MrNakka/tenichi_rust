@@ -55,8 +55,6 @@ body:not(.obs) .wave:nth-of-type(2) {
 .wrap {
   background: url(/images/bg_l.png) no-repeat left top 10vh, url(/images/bg_r.png) no-repeat right top;
   background-size: 350px auto;
-  /* height: 100vh;
-  position: relative; */
   position: relative;
   z-index: 10;
   min-height: 100vh;
@@ -114,16 +112,6 @@ body:not(.obs) .wave:nth-of-type(2) {
   max-width: 700px;
   text-align: center;
 }
-/* .modaal-content {
-  background: linear-gradient(
-    180deg,
-    #f3efe6,
-    #e6dcc8
-  );
-  border-radius: 16px;
-  box-shadow:
-    0 30px 80px rgba(0,0,0,.45);
-} */
 .modaal-content {
   background:
     linear-gradient(
@@ -772,7 +760,7 @@ h2.section-title {
   color: #1a1a1a;
   text-shadow: 0.25px 0.25px 0 rgba(0,0,0,.25);
   padding-left: 1.4em;
-  text-indent: -1.4em;
+  /* text-indent: -1.4em; */
   margin-bottom: 4px;
 }
 
@@ -807,4 +795,20 @@ h2.section-title {
 
 .mb00 {
   margin-bottom: 0 !important;
+}
+
+.marker {
+  display: inline-block;
+  position: relative;
+}
+.marker::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 3px;
+  background: rgb(209 44 35);
+  z-index: -1;
+  transform: skewX(-6deg);
 }
