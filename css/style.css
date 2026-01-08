@@ -32,6 +32,9 @@ body:not(.obs) .wave:nth-of-type(2) {
   opacity: 1;
 }
 
+body.obs .wrap { background: none; }
+body.obs .btn-wrap { display: none; }
+
 @keyframes wave {
   0% {
     margin-left: 0;
@@ -225,12 +228,20 @@ body:not(.obs) .wave:nth-of-type(2) {
 }
 
 .obs {
-  background: #000a9c;
+  background: #FF00FF;
   height: 100vh;
 }
 
 .obs .cls-0 {
   fill: #000a9c;
+}
+
+body.obs .region {
+  stroke: #ffffff;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-opacity: 1;
+  vector-effect: non-scaling-stroke;
 }
 
 .togoWrap {
@@ -925,4 +936,14 @@ section:target {
 }
 .link-nav-block.is-fixed {
   background: linear-gradient(#e0cfa8, #cdb47c);
+}
+
+/*  */
+.region {
+  stroke: #333;
+  stroke-width: 0.5;
+  transition:
+    fill 1s ease,
+    filter 0.8s ease;
+  cursor: pointer;
 }

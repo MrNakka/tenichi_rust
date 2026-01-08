@@ -69,26 +69,94 @@ $(function () {
   //   // });
   // });
 
-
-
-  // param for obs
   function getParam(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-      results = regex.exec(url);
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+    var results = regex.exec(url);
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
   }
-  var param = location.search;
-  console.log(param)
-  if (getParam('obs') === "true") {
-    $('body').addClass('obs');
-    // 5min reload
+
+  // 勢力状態保持
+  const currentAreaState = {};
+
+  let isInitialized = false;
+
+  function updateMapFromJson(isInitial = false) {
+    $.getJSON('/db/map-status.json', function (data) {
+
+      $('.region').each(function () {
+        const $el = $(this);
+        const code = $el.data('code');
+        if (!code) return;
+
+        const forceId = data.areas[code];
+        const color = data.forces[forceId];
+        if (!forceId || !color) return;
+
+        const prev = currentAreaState[code];
+
+        // 初期 or 未記録
+        if (isInitial || !prev) {
+          setRegionFill($el, color);
+          currentAreaState[code] = forceId;
+          return;
+        }
+
+        // 勢力変化
+        if (prev !== forceId) {
+          currentAreaState[code] = forceId;
+
+          // 白フラッシュ
+          setRegionFill($el, '#ffffff');
+
+          setTimeout(() => {
+            setRegionFill($el, color);
+            $el.css({
+              filter: 'brightness(1.5)',
+              'stroke-width': '5'
+            });
+          }, 80);
+
+          setTimeout(() => {
+            $el.css({
+              filter: '',
+              'stroke-width': ''
+            });
+          }, 600);
+        }
+      });
+    });
+  }
+
+  function setRegionFill($region, color) {
+    if ($region.prop('tagName').toLowerCase() === 'path' ||
+      $region.prop('tagName').toLowerCase() === 'polygon') {
+      $region[0].style.setProperty('fill', color, 'important');
+    } else {
+      $region.find('path, polygon').each(function () {
+        this.style.setProperty('fill', color, 'important');
+      });
+    }
+  }
+
+  // 初回描画
+  $(window).on('load', function () {
     setTimeout(function () {
-      location.reload();
-      console.log('reload')
-    }, 300000);
+      updateMapFromJson();
+    }, 50);
+  });
+
+  // OBSモード判定
+  if (getParam('obs') === 'true') {
+    $('body').addClass('obs');
+
+    setInterval(function () {
+      updateMapFromJson();
+      console.log('json reload');
+    // }, 300000);
+    }, 6000);
   }
 });
