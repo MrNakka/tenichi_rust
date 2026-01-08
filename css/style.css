@@ -1,10 +1,8 @@
-/* html, body { height: 100%; } */
 html {
   scroll-behavior: smooth;
 }
 body:not(.obs) {
   background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
-  /* overflow: hidden; */
   overflow-y: auto;
 }
 
@@ -369,8 +367,6 @@ h2.section-title {
 }
 
 .faction {
-  /* max-width: 1100px; */
-  /* margin: 0 auto 4rem; */
   padding: 0 1rem;
 }
 
@@ -569,7 +565,6 @@ h2.section-title {
   color: #f5e4b8;
 }
 
-/* モバイル調整 */
 @media (max-width: 600px) {
   h2.section-title {
     font-size: 2rem;
@@ -579,35 +574,28 @@ h2.section-title {
   }
 }
 
-/* ===== モーダル背景 ===== */
 .modaal-overlay {
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(2px);
 }
 
-/* ===== コンテナ（白殺し） ===== */
 .modaal-container {
   background: none;
   box-shadow: none;
 }
 
-/* ===== 中身（和紙） ===== */
 .modaal-content-container {
-  /* background: url("/assets/img/washi.png") center / cover; */
   padding: 2.2rem;
 
-  /* 初期状態 */
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ===== アニメ用：開く直前 ===== */
 .modaal-wrapper.modaal-opening .modaal-content-container {
   opacity: 0;
   transform: translateY(-40px) scale(.96);
 }
 
-/* ===== 開いた後 ===== */
 .modaal-wrapper.is-active .modaal-content-container {
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -616,7 +604,6 @@ h2.section-title {
     opacity .35s ease;
 }
 
-/* ===== 閉じる ===== */
 .modaal-wrapper.is-closing .modaal-content-container {
   opacity: 0;
   transform: translateY(-20px) scale(.98);
@@ -700,11 +687,9 @@ h2.section-title {
   flex-grow: 1;
 }
 .ofuregaki h3::before {
-  left: 0;
   margin-right: 1rem;
 }
 .ofuregaki h3::after {
-  right: 0;
   margin-left: 1rem;
 }
 
@@ -765,7 +750,6 @@ h2.section-title {
   color: #1a1a1a;
   text-shadow: 0.25px 0.25px 0 rgba(0,0,0,.25);
   padding-left: 1.4em;
-  /* text-indent: -1.4em; */
   margin-bottom: 4px;
 }
 
@@ -816,4 +800,29 @@ h2.section-title {
   background: rgb(209 44 35);
   z-index: -1;
   transform: skewX(-6deg);
+}
+
+.mp-title {
+  font-family: 'Hina Mincho', serif;
+  font-size: 2rem;
+  letter-spacing: .25em;
+  color: #8b1e1e;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-top: 80px;
+}
+.mp-title::before,
+.mp-title::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: #1f140ca1;
+  flex-grow: 1;
+}
+.mp-title::before {
+  margin-right: 1rem;
+}
+.mp-title::after {
+  margin-left: 1rem;
 }
