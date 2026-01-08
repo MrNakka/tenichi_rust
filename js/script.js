@@ -156,7 +156,7 @@ $(function () {
     setInterval(function () {
       updateMapFromJson();
       console.log('json reload');
-    // }, 300000);
-    }, 6000);
+    }, 300000);
+    // }, 6000);
   }
 });
