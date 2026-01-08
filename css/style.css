@@ -623,6 +623,10 @@ h2.section-title {
   margin: 50px auto 0;
 }
 
+.member-page-wrap .mp-title {
+  scroll-margin-top: 80px;
+}
+
 /* rule page */
 .rule-page-wrap {
   max-width: 100%;
@@ -836,6 +840,7 @@ h2.section-title {
   background: linear-gradient(#f3ead7, #e6d6b8);
   border-bottom: 2px solid #7a5a2b;
   padding: 10px 0;
+  margin-top: 50px;
 }
 
 /* 横スクロール対応 */
@@ -889,4 +894,35 @@ h2.section-title {
 /* ===== アンカー到達時（CSSだけで可能） ===== */
 section:target {
   scroll-margin-top: 90px; /* stickyナビ分 */
+}
+
+.link-nav-block {
+  background: linear-gradient(#f3ead7, #e6d6b8);
+  border-bottom: 2px solid #7a5a2b;
+  padding: 10px 0;
+  transition: box-shadow .2s ease;
+}
+
+/* 固定状態 */
+.link-nav-block.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0,0,0,.35);
+}
+
+.link-nav-spacer {
+  height: 0;
+}
+.link-nav-block.is-fixed + .link-nav-spacer {
+  height: 62px; /* navの高さに合わせる */
+}
+.link-nav-block.is-fixed {
+  margin-top: 0;
+  padding: 6px 0;
+}
+.link-nav-block.is-fixed {
+  background: linear-gradient(#e0cfa8, #cdb47c);
 }

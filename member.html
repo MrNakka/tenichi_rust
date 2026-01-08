@@ -35,6 +35,7 @@ layout: none
           <li><a href="#kyushu">九州地方</a></li>
         </ul>
       </nav>
+      <div class="link-nav-spacer"></div>
       <h2 class="mp-title" id="hokkaido">北海道地方</h2>
       {% include 1_1_hokkaido.html %}
       {% include 1_2_hokkaido.html %}
@@ -109,32 +110,18 @@ layout: none
 
 
 </body>
-<script type="text/javascript">
-  //モーダル表示
-  $(".modal01").modaal({
-    overlay_close: true,
-    before_open: function () {
-      $('html').css('overflow-y', 'hidden');
-    },
-    after_close: function () {
-      $('html').css('overflow-y', 'scroll');
-    }
-  });
-  $('.modaal').modaal({
-    before_open: function () {
-      $('.modaal-wrapper')
-        .addClass('modaal-opening')
-        .removeClass('is-closing');
-    },
-    after_open: function () {
-      $('.modaal-wrapper').removeClass('modaal-opening');
-    },
-    before_close: function () {
-      $('.modaal-wrapper').addClass('is-closing');
-    },
-    after_close: function () {
-      $('.modaal-wrapper').removeClass('is-closing');
-    }
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('.link-nav-block');
+    const navTop = nav.offsetTop;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= navTop) {
+        nav.classList.add('is-fixed');
+      } else {
+        nav.classList.remove('is-fixed');
+      }
+    });
   });
 </script>
 </html>
