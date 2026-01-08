@@ -75,15 +75,20 @@ body:not(.obs) .wave:nth-of-type(2) {
 
 .btn-wrap {
   position: fixed;
-  height: 100px;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 100;
 }
 
+.btn-wrap .wrap-inner {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-right: 10px;
+}
+
 .btn {
-  position: absolute;
   display: block;
   width: 150px;
   text-align: center;
