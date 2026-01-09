@@ -195,7 +195,7 @@ $(function () {
   let pauseTimer = null;
 
   // 初期停止（最新を見せる）
-  setTimeout(() => autoScroll = true, 1200);
+  setTimeout(() => autoScroll = true, 2400);
 
   function autoScrollStep() {
     if (!autoScroll) return;

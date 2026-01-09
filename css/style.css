@@ -950,12 +950,12 @@ section:target {
 
 .merge-feed {
   width: 320px;
-  height: 4rem;
+  height: 4.5rem;
   overflow: hidden;
   background: #0f1115;
   border: 1px solid #333;
   border-radius: 6px;
-  padding: 8px 12px;
+  padding: 10px 15px;
   font-weight: bold;
   position: absolute;
   top: 200px;
