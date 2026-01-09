@@ -171,7 +171,7 @@ $(function () {
 
     text.textContent = el.dataset.name;
     text.setAttribute("x", box.x + box.width / 2);
-    text.setAttribute("y", box.y + box.height / 2.5);
+    text.setAttribute("y", box.y + box.height / 2.2);
     text.setAttribute("text-anchor", "middle");
     text.setAttribute("dominant-baseline", "central");
     text.setAttribute("font-size", "40");
