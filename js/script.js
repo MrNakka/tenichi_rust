@@ -159,4 +159,30 @@ $(function () {
     }, 300000);
     // }, 6000);
   }
+
+  const svg = document.getElementById("japan-map");
+
+  svg.querySelectorAll("[data-name]").forEach(el => {
+    const box = el.getBBox();
+
+    const text = document.createElementNS(
+      "http://www.w3.org/2000/svg", "text"
+    );
+
+    text.textContent = el.dataset.name;
+    text.setAttribute("x", box.x + box.width / 2);
+    text.setAttribute("y", box.y + box.height / 2.5);
+    text.setAttribute("text-anchor", "middle");
+    text.setAttribute("dominant-baseline", "central");
+    text.setAttribute("font-size", "40");
+    text.setAttribute("font-weight", "bold");
+    text.setAttribute("fill", "#333");
+    text.setAttribute("fill", "#333");
+    text.style.pointerEvents = "none";
+    text.setAttribute("filter", "url(#text-shadow)");
+    text.style.paintOrder = "stroke";
+    text.setAttribute("stroke", "#fff");
+    text.setAttribute("stroke-width", "2");
+    svg.appendChild(text);
+  });
 });
