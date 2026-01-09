@@ -186,18 +186,55 @@ $(function () {
     svg.appendChild(text);
   });
 
+  // log
+  const feed = document.querySelector(".merge-feed");
   const list = document.getElementById("mergeList");
-  let offset = 0;
+  const itemHeight = list.children[0].offsetHeight;
 
-  setInterval(() => {
-    offset += 1;
-    list.style.transform = `translateY(-${offset}px)`;
+  let autoScroll = true;
+  let pauseTimer = null;
 
-    // 1行分スクロールしたら先頭を末尾へ
-    if (offset >= list.children[0].offsetHeight) {
-      list.appendChild(list.children[0]);
-      offset = 0;
-      list.style.transform = `translateY(0)`;
+  // 初期停止（最新を見せる）
+  setTimeout(() => autoScroll = true, 1200);
+
+  function autoScrollStep() {
+    if (!autoScroll) return;
+
+    feed.scrollTop += 1;
+
+    // 行単位で停止
+    if (feed.scrollTop % itemHeight === 0) {
+      autoScroll = false;
+
+      pauseTimer = setTimeout(() => {
+        autoScroll = true;
+      }, 900);
     }
-  }, 40); // 数値を大きくするとゆっくり
+
+    // 最下部に到達したらトップへ
+    if (feed.scrollTop + feed.clientHeight >= feed.scrollHeight) {
+      autoScroll = false;
+
+      setTimeout(() => {
+        feed.scrollTop = 0;
+        autoScroll = true;
+      }, 6000);
+    }
+  }
+
+  // 自動スクロール
+  setInterval(autoScrollStep, 60);
+
+  // ユーザー操作検知（重要）
+  ["wheel", "touchstart", "mousedown"].forEach(evt => {
+    feed.addEventListener(evt, () => {
+      autoScroll = false;
+      clearTimeout(pauseTimer);
+
+      // 一定時間後に自動再開
+      pauseTimer = setTimeout(() => {
+        autoScroll = true;
+      }, 1000);
+    });
+  });
 });

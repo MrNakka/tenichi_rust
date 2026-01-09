@@ -950,7 +950,7 @@ section:target {
 
 .merge-feed {
   width: 320px;
-  height: 120px;
+  height: 4rem;
   overflow: hidden;
   background: #0f1115;
   border: 1px solid #333;
@@ -958,7 +958,8 @@ section:target {
   padding: 8px 12px;
   font-weight: bold;
   position: absolute;
-  top: 160px;
+  top: 200px;
+  overflow-y: auto;
 }
 
 .merge-feed ul {
@@ -974,8 +975,11 @@ section:target {
   white-space: nowrap;
 }
 
-.merge-feed .date {
-  color: #e6e6e6;
-  margin-right: 8px;
-  font-size: 12px;
+/* Webkit系スクロールバー */
+.merge-feed::-webkit-scrollbar {
+  width: 6px;
+}
+.merge-feed::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
 }
