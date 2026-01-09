@@ -21,8 +21,8 @@
     "Kanagawa": "#3B6FC2",
 
     "Niigata": "#6F8FBF",
-    "Sadogashima": "#8BB0D9",
-    "Toyama": "#5F9EA0",
+    "Sadogashima": "#5F9EA0",
+    "Toyama": "#8BB0D9",
     "Ishikawa": "#7C7FAF",
     "Fukui": "#6B8E8E",
 
@@ -34,11 +34,11 @@
     "Mie": "#8E6E53",
 
     "Shiga": "#6FA38E",
-    "Kyoto": "#9B7BBF",
+    "Kyoto": "#C98A5B",
     "Osaka": "#C75C5C",
-    "Hyogo": "#8C6BAF",
+    "Hyogo": "#8F7C5E",
     "AwajiShima": "#A38FD3",
-    "Nara": "#8F7C5E",
+    "Nara": "#8C6BAF",
     "Wakayama": "#5FA88E",
 
     "Tottori": "#A3B18A",
@@ -49,7 +49,7 @@
 
     "Tokushima": "#6BA3A8",
     "Kagawa": "#8EBF6A",
-    "Ehime": "#C98A5B",
+    "Ehime": "#9B7BBF",
     "Kochi": "#5F7FA8",
 
     "Fukuoka": "#C23B3B",
