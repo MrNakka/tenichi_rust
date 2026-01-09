@@ -1006,4 +1006,12 @@ section:target {
     width: 100%;
     top: 10vh;
   }
+
+  .member-page-wrap {
+    width: 100%;
+  }
+
+  .member-page-wrap > .faction {
+    width: 100%;
+  }
 }
