@@ -947,3 +947,35 @@ section:target {
     filter 0.8s ease;
   cursor: pointer;
 }
+
+.merge-feed {
+  width: 320px;
+  height: 120px;
+  overflow: hidden;
+  background: #0f1115;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: bold;
+  position: absolute;
+  top: 160px;
+}
+
+.merge-feed ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.merge-feed li {
+  line-height: 2;
+  font-size: 14px;
+  color: #e6e6e6;
+  white-space: nowrap;
+}
+
+.merge-feed .date {
+  color: #e6e6e6;
+  margin-right: 8px;
+  font-size: 12px;
+}

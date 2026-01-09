@@ -185,4 +185,19 @@ $(function () {
     text.setAttribute("stroke-width", "2");
     svg.appendChild(text);
   });
+
+  const list = document.getElementById("mergeList");
+  let offset = 0;
+
+  setInterval(() => {
+    offset += 1;
+    list.style.transform = `translateY(-${offset}px)`;
+
+    // 1行分スクロールしたら先頭を末尾へ
+    if (offset >= list.children[0].offsetHeight) {
+      list.appendChild(list.children[0]);
+      offset = 0;
+      list.style.transform = `translateY(0)`;
+    }
+  }, 40); // 数値を大きくするとゆっくり
 });
