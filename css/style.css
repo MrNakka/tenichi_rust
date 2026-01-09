@@ -1036,4 +1036,8 @@ section:target {
   .link-nav-block ul {
     justify-content: flex-start;
   }
+
+  .modaal-content-container {
+    padding: 20px 10px;
+  }
 }
