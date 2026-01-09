@@ -446,7 +446,7 @@ h2.section-title {
 
 @media (max-width: 900px) {
   .member-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -630,7 +630,7 @@ h2.section-title {
 }
 
 .member-page-wrap > .faction {
-  width: 700px;
+  max-width: 700px;
   margin: 50px auto 0;
 }
 
@@ -1013,5 +1013,27 @@ section:target {
 
   .member-page-wrap > .faction {
     width: 100%;
+  }
+
+  .link-nav-block {
+    margin-top: 25px;
+  }
+  .member-page-wrap > .faction {
+    margin-top: 25px;
+  }
+  .mp-title {
+    margin-top: 30px;
+  }
+  .member-page-wrap .mp-title {
+    scroll-margin-top: 70px;
+  }
+
+  .link-nav-block {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .link-nav-block ul {
+    justify-content: flex-start;
   }
 }
