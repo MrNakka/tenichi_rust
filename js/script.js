@@ -84,33 +84,42 @@ $(function () {
 
   let isInitialized = false;
 
+  // マップ更新＋ニュース生成
   function updateMapFromJson(isInitial = false) {
     $.getJSON('/db/map-status.json', function (data) {
+
+      // 勢力ごとの地域数を集計
+      const forceCount = {};
+      for (const code in data.areas) {
+        const forceId = data.areas[code];
+        if (!forceCount[forceId]) forceCount[forceId] = 0;
+        forceCount[forceId]++;
+      }
 
       $('.region').each(function () {
         const $el = $(this);
         const code = $el.data('name');
         if (!code) return;
 
-        const forceId = data.areas[code];
-        const color = data.forces[forceId];
-        if (!forceId || !color) return;
+        const newForce = data.areas[code];
+        const color = data.forces[newForce];
+        if (!newForce || !color) return;
 
         // 色はCSS変数に入れるだけ
         $el.css('--region-color', color);
 
         // 統治判定
-        const isMerged = code !== forceId;
+        const isMerged = code !== newForce;
         $el.toggleClass('is-merged', isMerged);
         $el.toggleClass('is-origin', !isMerged);
 
+        // オーバーレイ処理
         if (isMerged) {
           if (!$el.data('mergedOverlay')) {
             const $overlay = $el.clone(false);
-
             $overlay
-              .removeAttr('style') // OK
-              .removeAttr('fill') // ← 重要
+              .removeAttr('style')
+              .removeAttr('fill')
               .css({
                 fill: 'url(#merged-pattern)',
                 pointerEvents: 'none'
@@ -128,15 +137,41 @@ $(function () {
           }
         }
 
-        currentAreaState[code] = forceId;
+        // --- ニュース生成 ---
+        const oldForce = currentAreaState[code];
+        const count = forceCount[newForce];
+        // 勢力が2県以上かつ、自分自身が統治していない場合だけニュース生成
+        if (count > 1 && code !== newForce && (isInitial || (oldForce && oldForce !== newForce))) {
+          const regionName = code; // 必要なら都道府県名マッピングに置換
+          const forceName = newForce; // 必要なら勢力名マッピングに置換
+          const text = `${regionName} は ${forceName} に併合されました（勢力${count}県）`;
+
+          addMergeNews(text);
+        }
+
+        // 状態更新
+        currentAreaState[code] = newForce;
       });
     });
+  }
+
+  // ニュースフィード追加関数
+  function addMergeNews(text) {
+    const list = document.getElementById("mergeList");
+    if (!list) return;
+
+    const li = document.createElement("li");
+    li.textContent = text;
+    li.className = "merge-item";
+
+    list.prepend(li);
   }
 
   // 初回描画
   $(window).on('load', function () {
     setTimeout(function () {
-      updateMapFromJson();
+      updateMapFromJson(true);
+      updateNewsFeedFromJson();
     }, 50);
   });
 
@@ -145,7 +180,8 @@ $(function () {
     $('body').addClass('obs');
 
     setInterval(function () {
-      updateMapFromJson();
+      updateMapFromJson(true);
+      updateNewsFeedFromJson();
       console.log('json reload');
     }, 300000);
     // }, 6000);
@@ -177,26 +213,35 @@ $(function () {
     svg.appendChild(text);
   });
 
-  // log
+  // DOM取得
   const feed = document.querySelector(".merge-feed");
   const list = document.getElementById("mergeList");
-  const itemHeight = list.children[0].offsetHeight;
 
+  let itemHeight = 0;
   let autoScroll = true;
   let pauseTimer = null;
 
+  // 高さ更新関数
+  function updateItemHeight() {
+    if (list && list.children.length > 0) {
+      itemHeight = list.children[0].offsetHeight;
+    }
+  }
+
   // 初期停止（最新を見せる）
-  setTimeout(() => autoScroll = true, 2400);
+  setTimeout(() => {
+    autoScroll = true;
+    updateItemHeight(); // 初期ロード時も高さ更新
+  }, 2400);
 
   function autoScrollStep() {
-    if (!autoScroll) return;
+    if (!autoScroll || itemHeight === 0) return; // 高さ0なら無効
 
     feed.scrollTop += 1;
 
     // 行単位で停止
     if (feed.scrollTop % itemHeight === 0) {
       autoScroll = false;
-
       pauseTimer = setTimeout(() => {
         autoScroll = true;
       }, 900);
@@ -205,7 +250,6 @@ $(function () {
     // 最下部に到達したらトップへ
     if (feed.scrollTop + feed.clientHeight >= feed.scrollHeight) {
       autoScroll = false;
-
       setTimeout(() => {
         feed.scrollTop = 0;
         autoScroll = true;
@@ -213,19 +257,31 @@ $(function () {
     }
   }
 
-  // 自動スクロール
+  // 自動スクロール開始
   setInterval(autoScrollStep, 60);
 
-  // ユーザー操作検知（重要）
+  // ユーザー操作で一時停止
   ["wheel", "touchstart", "mousedown"].forEach(evt => {
     feed.addEventListener(evt, () => {
       autoScroll = false;
       clearTimeout(pauseTimer);
-
-      // 一定時間後に自動再開
-      pauseTimer = setTimeout(() => {
-        autoScroll = true;
-      }, 1000);
+      pauseTimer = setTimeout(() => { autoScroll = true; }, 1000);
     });
   });
+
+  // --- 重要 ---
+  // ニュース追加時に itemHeight を更新
+  function addMergeNews(text) {
+    if (!list) return;
+
+    const li = document.createElement("li");
+    li.textContent = text;
+    li.className = "merge-item";
+
+    list.prepend(li);
+
+    // 高さ再取得
+    updateItemHeight();
+  }
+
 });
