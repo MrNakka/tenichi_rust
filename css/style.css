@@ -1041,3 +1041,15 @@ section:target {
     padding: 20px 10px;
   }
 }
+
+.region {
+  fill: var(--region-color);
+}
+.region.is-merged {
+  /* filter: saturate(0.6) brightness(0.75) contrast(1.15); */
+  stroke-dasharray: 6 4;
+}
+.region.is-origin {
+  filter: none;
+  stroke-dasharray: none;
+}

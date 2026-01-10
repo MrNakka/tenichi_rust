@@ -89,57 +89,48 @@ $(function () {
 
       $('.region').each(function () {
         const $el = $(this);
-        const code = $el.data('code');
+        const code = $el.data('name');
         if (!code) return;
 
         const forceId = data.areas[code];
         const color = data.forces[forceId];
         if (!forceId || !color) return;
 
-        const prev = currentAreaState[code];
+        // 色はCSS変数に入れるだけ
+        $el.css('--region-color', color);
 
-        // 初期 or 未記録
-        if (isInitial || !prev) {
-          setRegionFill($el, color);
-          currentAreaState[code] = forceId;
-          return;
+        // 統治判定
+        const isMerged = code !== forceId;
+        $el.toggleClass('is-merged', isMerged);
+        $el.toggleClass('is-origin', !isMerged);
+
+        if (isMerged) {
+          if (!$el.data('mergedOverlay')) {
+            const $overlay = $el.clone(false);
+
+            $overlay
+              .removeAttr('style') // OK
+              .removeAttr('fill') // ← 重要
+              .css({
+                fill: 'url(#merged-pattern)',
+                pointerEvents: 'none'
+              })
+              .addClass('merged-overlay');
+
+            $el.after($overlay);
+            $el.data('mergedOverlay', $overlay);
+          }
+        } else {
+          const $overlay = $el.data('mergedOverlay');
+          if ($overlay) {
+            $overlay.remove();
+            $el.removeData('mergedOverlay');
+          }
         }
 
-        // 勢力変化
-        if (prev !== forceId) {
-          currentAreaState[code] = forceId;
-
-          // 白フラッシュ
-          setRegionFill($el, '#ffffff');
-
-          setTimeout(() => {
-            setRegionFill($el, color);
-            $el.css({
-              filter: 'brightness(1.5)',
-              'stroke-width': '5'
-            });
-          }, 80);
-
-          setTimeout(() => {
-            $el.css({
-              filter: '',
-              'stroke-width': ''
-            });
-          }, 600);
-        }
+        currentAreaState[code] = forceId;
       });
     });
-  }
-
-  function setRegionFill($region, color) {
-    if ($region.prop('tagName').toLowerCase() === 'path' ||
-      $region.prop('tagName').toLowerCase() === 'polygon') {
-      $region[0].style.setProperty('fill', color, 'important');
-    } else {
-      $region.find('path, polygon').each(function () {
-        this.style.setProperty('fill', color, 'important');
-      });
-    }
   }
 
   // 初回描画
